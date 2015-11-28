@@ -91,16 +91,6 @@ Grid.prototype.addRandomTile = function () {
 		this.insertTile(tile);
 	}
 };
-// prepare merge
-Grid.prototype.prepareTileMerge = function () {
-	// record recurrent grid
-	this.cellIterator(function (i, j, tile) {
-		if (tile) {
-			// ?? tile.?? = null;
-			tile.savePosition();// save position
-		}
-	});
-};
 // move a tile to another cell, update its current position
 Grid.prototype.moveTile = function (tile, cell) {
 	this.cells[tile.x][tile.y] = null;
@@ -121,9 +111,8 @@ Grid.prototype.move = function (moveDirection) {
 	var score = 0;
 	var won = false;
 	var over = false;
-	// prepare
+
 	var cell, tile;
-	this.prepareTileMerge();
 	var self = this;
 	// traversal begin
 	meshGrid.x.forEach(function(x){
@@ -232,6 +221,3 @@ Grid.prototype.hasMatches = function () {
 	// });
 	return false;
 };
-
-
-
