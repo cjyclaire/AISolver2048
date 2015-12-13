@@ -1,9 +1,0 @@
-function Tile(pos, val) {
-	this.x = pos.x;
-	this.y = pos.y;
-	this.value = val;
-}
-Tile.prototype.updatePosition = function (newPos) {
-	this.x = newPos.x;
-	this.y = newPos.y;
-}
